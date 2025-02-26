@@ -38,10 +38,13 @@ import img13 from './img13.jpg'
 import img14 from './img14.jpg'
 import img15 from './img15.jpg'
 import img16 from './img16.jpg'
+import img17 from './img17.webp'
 import song1 from  './song1.mp3'
 import song2 from  './song2.mp3'
 import song3 from  './song3.mp3'
 import song4 from  './song4.mp3'
+import song5 from  './song5.mp3'
+
 
 
 export const assets = {
@@ -119,6 +122,14 @@ export const albumsData = [
 export const songsData = [
     {
         id:0,
+        name: "Chuỗi ngày vắng em",
+        image: img17,
+        file:song5,
+        desc:"Put a smile on your face with these happy tunes",
+        duration:"3:00"
+    },
+    {
+        id:1,
         name: "Song One",
         image: img1,
         file:song4,
@@ -126,7 +137,7 @@ export const songsData = [
         duration:"3:00"
     },
     {
-        id:1,
+        id:2,
         name: "Song Two",
         image: img2,
         file:song2,
@@ -134,7 +145,7 @@ export const songsData = [
         duration:"2:20"
     },
     {
-        id:2,
+        id:3,
         name: "Song Three",
         image: img3,
         file:song3,
@@ -142,7 +153,7 @@ export const songsData = [
         duration:"2:32"
     },
     {
-        id:3,
+        id:4,
         name: "Song Four",
         image: img4,
         file:song1,
@@ -150,7 +161,7 @@ export const songsData = [
         duration:"2:50"
     },
     {
-        id:4,
+        id:5,
         name: "Song Five",
         image: img5,
         file:song2,
@@ -158,7 +169,7 @@ export const songsData = [
         duration:"3:10"
     },
     {
-        id:5,
+        id:6,
         name: "Song Six",
         image: img14    ,
         file:song3,
@@ -166,7 +177,7 @@ export const songsData = [
         duration:"2:45"
     },
     {
-        id:6,
+        id:7,
         name: "Song Seven",
         image: img7,
         file:song1,
@@ -174,7 +185,7 @@ export const songsData = [
         duration:"2:18"
     },
     {
-        id:7,
+        id:8,
         name: "Song Eight",
         image: img12,
         file:song2,

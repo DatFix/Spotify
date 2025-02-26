@@ -11,7 +11,7 @@ const PlayerContextProvider = (props) => {
 
     const getCurrentId = localStorage.getItem("currentId")
 
-    const [track, setTrack] = useState(songsData[parseInt(getCurrentId)])
+    const [track, setTrack] = useState(getCurrentId ? songsData[parseInt(getCurrentId)] : songsData[0])
     const [playStatus, setPlayStatus] = useState(false)
     const [currentPlayingId, setCurrentPlayingId] = useState()
     const [time, setTime] = useState({
