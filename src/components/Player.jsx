@@ -1,14 +1,21 @@
 import React, { useContext } from 'react';
 import { assets, songsData } from '../assets/assets';
 import { PlayerContext } from '../context/PlayerContext';
+import { Slider } from 'antd';
 
 const Player = () => {
 
     const { seekBar, seekBg, playStatus, play, pause, track, time, previous, next, seekSong } = useContext(PlayerContext)
 
+    const formatTime = (seconds) => {
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = Math.floor(seconds % 60);
+        return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+    };
+
     return (
         <div className='h-[10%] bg-black flex justify-between items-center text-white px-4'>
-            <div className='hidden lg:flex items-center gap-4'>
+            <div className='hidden lg:flex items-center gap-4 min-w-[250px]'>
                 <img className='w-12' src={track.image} alt='' />
                 <div>
                     <p>{track.name}</p>
@@ -31,9 +38,29 @@ const Player = () => {
 
                 <div className='flex items-center gap-5'>
                     <p>{time.currentTime.minutes}:{time.currentTime.seconds}</p>
-                    <div ref={seekBg} onClick={seekSong} className='w-[60vw] max-w-[500px] bg-gray-300 rounded-full cursor-pointer'>
-                        <hr ref={seekBar} className='h-1 border-none w-0 bg-green-800 rounded-full' />
+                    <div ref={seekBg} onClick={seekSong} className='w-[60vw] max-w-[500px] cursor-pointer'>
+                        <hr ref={seekBar} className='hidden h-1 border-none w-0 bg-green-800 rounded-full' />
+                        {/* <input
+                            type='range'
+                            min='0'
+                            max={time.totalTime.seconds + time.totalTime.minutes * 60}
+                            value={time.currentTime.seconds + time.currentTime.minutes * 60}
+                            onClick={seekSong}
+                            className='w-[60vw] max-w-[500px] cursor-pointer'
+                        /> */}
+                        <Slider
+                            max={time.totalTime.seconds + time.totalTime.minutes * 60}
+                            value={time.currentTime.seconds + time.currentTime.minutes * 60}
+                            onChange={seekSong}
+                            defaultValue={30}
+                            tooltip={{
+                                formatter: (value) => formatTime(value),
+                            }}
+                            style={{boxShadow: 'none',outline: 'none'}}
+                        
+                        />
                     </div>
+
                     <p>{time.totalTime.minutes}:{time.totalTime.seconds}</p>
                 </div>
             </div>
